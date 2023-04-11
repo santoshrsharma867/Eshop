@@ -31,15 +31,6 @@ const storage = multer.diskStorage({
   
 const uploadOptions = multer({ storage: storage })
 
-
-
-
-
-
-
-
-
-
 router.get('/', async (req, res) => {
     const product = await ProductModel.find().populate('category')
     //.select('name image -_id')
