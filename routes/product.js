@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
         })
     }
     res.status(200).json({
-        productsDetail: product
+        products: product
     })
 })
 
