@@ -9,6 +9,8 @@ const userRoute = require('./routes/user')
 const orderRoute= require('./routes/order')
 var { expressjwt: jwt } = require("express-jwt");
 const errorHandler = require('./helper/error_handler')
+const fileupload = require('express-fileupload')
+
 
 const mongoose = require('mongoose');
 var connectionURL = 'mongodb+srv://admin:santosh867@cluster0.j2zv34t.mongodb.net/ESHOP?retryWrites=true&w=majority';
@@ -27,6 +29,9 @@ mongoose.connect(connectionURL, {
 app.use(bodyParser.json())
 app.use(morgan('tiny'))
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+app.use(fileupload({
+    useTempFiles:true
+}))
 // app.use(
 //     jwt({
 //         secret: process.env.SECRET_KEY,
